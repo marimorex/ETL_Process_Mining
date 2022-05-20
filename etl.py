@@ -9,7 +9,8 @@ FILE_NAME = config('TRACE_DATA_FILE_NAME')
 COURSE_NAME = config('NAME_OF_COURSE')
 LIST_IDS_TO_DELETE = json.loads(config('USERS_IDS_TO_DELETE'))
 nan_value = float("NaN")
-df = pd.read_csv(FILE_NAME, usecols= COLS_TO_USE)
+df = pd.read_excel(FILE_NAME, usecols= COLS_TO_USE)
+
 
 # Get user id as case id
 df['case_id'] = df['Description'].str.split("'").str[1]
@@ -87,8 +88,8 @@ activity_course_load = df[(df['activity'] == COURSE_NAME)].index
 df.drop(activity_course_load , inplace=True)
 
 # output file
-compression_opts = dict(method='zip', archive_name='2022_out_file_event_logs_cloud_II.csv') 
-df.to_csv('2022_out_file_event_logs_cloud_II.zip', index=False,compression=compression_opts) 
+compression_opts = dict(method='zip', archive_name='2022_out_file_event_logs_advanced_db.csv') 
+df.to_csv('2022_out_file_event_logs_advanced_db.zip', index=False,compression=compression_opts) 
 
 df.head()
 
