@@ -87,8 +87,8 @@ activity_course_load = df[(df['activity'] == COURSE_NAME)].index
 df.drop(activity_course_load , inplace=True)
 
 # output file
-compression_opts = dict(method='zip', archive_name='out_file_event_logs.csv') 
-df.to_csv('out_file_event_logs.zip', index=False,compression=compression_opts) 
+compression_opts = dict(method='zip', archive_name='2022_out_file_event_logs_cloud_II.csv') 
+df.to_csv('2022_out_file_event_logs_cloud_II.zip', index=False,compression=compression_opts) 
 
 df.head()
 
